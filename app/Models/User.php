@@ -3,18 +3,21 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\Tag;
 use App\Models\Option;
 use App\Models\Category;
 use App\Models\Document;
 use App\Models\Department;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable,SoftDeletes;
+  
 
     /**
      * The attributes that are mass assignable.
@@ -25,7 +28,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'role_id',
+        'role',
         'is_active',
         'avatar',
         'birth_date',
@@ -48,6 +51,10 @@ class User extends Authenticatable
     public function categories()
     {
       return $this->hasMany(Category::class);
+    }
+    public function tags()
+    {
+      return $this->hasMany(Tag::class);
     }
 
     /**
