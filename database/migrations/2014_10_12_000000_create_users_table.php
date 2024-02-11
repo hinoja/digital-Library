@@ -18,7 +18,7 @@ return new class extends Migration
             $table->enum('role',['administrator','student','teacher'])->default('student')->constrained();
             $table->string('password');
             $table->string('phone_number')->unique()->nullable();
-            $table->dateTime('birth_date')->nullable();
+            $table->date('birth_date')->nullable();
             $table->string('avatar')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->boolean('is_active')->default(true);

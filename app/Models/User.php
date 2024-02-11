@@ -52,9 +52,9 @@ class User extends Authenticatable
     {
       return $this->hasMany(Category::class);
     }
-    public function tags()
+    public function keywords()
     {
-      return $this->hasMany(Tag::class);
+      return $this->hasMany(Keyword::class);
     }
 
     /**

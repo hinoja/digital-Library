@@ -17,7 +17,8 @@ class CategoryFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            // 'name' => fake()->field
+            // 'description' => fake()->sentence(6),
         ];
     }
 }

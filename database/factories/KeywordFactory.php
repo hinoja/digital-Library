@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Tag>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Keyword>
  */
-class TagFactory extends Factory
+class KeywordFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,8 +17,8 @@ class TagFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' =>$name= fake()->name(),
-            'description' =>$name= fake()->name(),
+            'name' => fake()->slug(),
+            'description' => fake()->sentence(6),
 
         ];
     }

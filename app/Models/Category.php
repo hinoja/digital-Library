@@ -9,14 +9,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Category extends Model
 {
-    use HasFactory;
-    public $fillable=['name','description'];
-    // public function documents()
-    // {
-    //   return $this->hasMany(Document::class);
-    // }
-    public function user()
-    {
-      return $this->belongTo(User::class);
-    }
+  use HasFactory;
+  public $fillable = ['name', 'description'];
+  public function documents()
+  {
+    return $this->belongsToMany(Document::class);
+  }
+  public function user()
+  {
+    return $this->belongTo(User::class);
+  }
 }

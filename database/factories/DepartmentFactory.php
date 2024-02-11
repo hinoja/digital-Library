@@ -17,8 +17,8 @@ class DepartmentFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' =>$name= fake()->name(),
-            'description' =>$name= fake()->name(),
+            'name' => fake()->unique()->domainWord(),
+            'description' =>fake()->paragraph(1),
         ];
     }
 }

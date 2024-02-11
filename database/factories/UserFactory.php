@@ -26,15 +26,14 @@ class UserFactory extends Factory
         return [
             'name' =>$name= fake()->name(),
             'email' => fake()->unique()->safeEmail(),
+            'is_active' => fake()->boolean(60),
             'email_verified_at' => now(),
             "phone_number" => fake()->e164PhoneNumber(),
-            // 'avatar' => fake()->image('public/storage/avatars/users/', 500, 500, $name, false),
-            "birth_date" => fake()->dateTime(),
+            // 'avatar' => fake()->image('public/storage/users/avatars/', 500, 500, $name, false),
+            // "birth_date" => fake()->date($format='d-m-Y'),
             'password' => static::$password ??= Hash::make('password'),
             'remember_token' => Str::random(10),
             'phone_number' => fake()->unique()->e164PhoneNumber(),
-            // 'role_id' => 1,
-            // 'role_id' => fake()->number_format(2,3),
         ];
     }
 

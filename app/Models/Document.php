@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Models\Tag;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -12,13 +11,18 @@ class Document extends Model
 {
   use HasFactory, SoftDeletes;
 
-  protected $fillable = ['title','file', 'slug', 'description', 'image', 'published_at', 'category_id', 'is_active'];
+  protected $fillable = ['type', 'user_id','level', 'authors', 'description', 'extension', 'title', 'file', 'option_id', 'slug', 'description', 'image', 'published_at', 'is_visible'];
+  
+  public function categories()
+  {
+    return $this->belongsToMany(Category::class);
+  }
   public function user()
   {
     return $this->belongsTo(User::class);
   }
-  public function tags()
+  public function keywords()
   {
-    return $this->belongsToMany(Tag::class);
+    return $this->belongsToMany(Keyword::class);
   }
 }
